@@ -1,10 +1,10 @@
 # Multi-API DDD Node
 
-A flexible backend template built with **TypeScript** that supports multiple APIs (REST, GraphQL, gRPC, OData, MQTT, WebSocket) and can easily be customized to fit different use cases. The architecture follows **Domain-Driven Design (DDD)** principles, making it easy to extend, scale, and maintain.
+A flexible backend template built with **TypeScript** that supports multiple APIs (REST, GraphQL, gRPC, MQTT, WebSocket, Kafka, RabbitMQ) and can easily be customized to fit different use cases. The architecture follows **Domain-Driven Design (DDD)** principles, making it easy to extend, scale, and maintain.
 
 ## Features
 
-- **Multi-API Support**: REST, GraphQL, gRPC, OData, MQTT, and WebSocket APIs are included. You can easily delete or add APIs as needed by removing related files and configurations ().
+- **Multi-API Support**: REST, GraphQL, gRPC, MQTT, and WebSocket APIs are included. You can easily delete or add APIs as needed by removing related files and configurations ().
 - **Domain-Driven Design**: Follow DDD principles for maintainable and scalable code.
 - **Docker Ready**: The project is pre-configured to run in Docker, making deployment straightforward.
 - **TypeScript**: Built with TypeScript for better type safety and developer experience.
@@ -15,22 +15,9 @@ A flexible backend template built with **TypeScript** that supports multiple API
 
 ## Installation and dependencies
 
-To get started with the project, clone this repository and install the following:
-npm install dotenv --project environment variables, make sure to create and fill the .env file
-npm install express --api restful
-npm install cors --cors express middleware
-npm install apollo-server-express graphql --api graphql
-npm install @grpc/grpc-js @grpc/proto-loader --api grpc
-npm install odata-v4-server --api odata
-npm install mqtt --api mqtt
-npm install ws --api websocket
-npm install sequelize pg pg-hstore --orm with postgres
-npm install joi --input validacon
-npm install pino --logging
-npm install axios --external http requests
-npm install jest supertest jest-cucumber 
-npm install typescript 
-npm install ts-jest --jest with typescript
+o get started with the project, clone this repository, switch to the clean_version branch, install the dependencies from package.json, and create the structure by executing the PowerShell script create-structure.ps1.
+
+If you want the example rather than the template, clone the main branch and install the dependencies from package.json.
 
 ## DDD architecture folders
 ```plaintext
@@ -57,10 +44,6 @@ src/
 │   │   │   ├── services/           # gRPC service implementations
 │   │   │   ├── protos/             # Protocol Buffer definitions
 │   │   │   └── index.ts            # gRPC API entry point
-│   │   ├── odata/                  # OData API components
-│   │   │   ├── queries/            # OData query implementations
-│   │   │   ├── filters/            # OData filter logic
-│   │   │   └── index.ts            # OData API entry point
 │   │   ├── mqtt/                   # MQTT API components
 │   │   │   ├── brokers/            # Broker configurations and setups
 │   │   │   ├── topics/             # Topic-specific logic
