@@ -17,7 +17,7 @@ A flexible backend template built with **TypeScript** that supports multiple API
 
 To get started with the project, clone this repository and install the dependencies.
 
-## The project follows the DDD architecture and includes the following folders
+## DDD architecture folders
 ```plaintext
 src/
 ├── application/
