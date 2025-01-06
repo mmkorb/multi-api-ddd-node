@@ -1,0 +1,34 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Output directories
+dist/
+build/
+
+# VSCode settings
+.vscode/
+
+# MacOS files
+.DS_Store
+
+# Jest coverage directory
+coverage/
+
+# Docker
+docker-compose.yml
+Dockerfile
+
+# Miscellaneous
+tmp/
+*.swp

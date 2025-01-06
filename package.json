@@ -1,0 +1,41 @@
+{
+    "name": "multi-api-ddd-node",
+    "version": "1.0.0",
+    "description": "Projeto de backend com várias APIs e integrações usando DDD",
+    "main": "src/index.ts",
+    "scripts": {
+      "start": "node dist/index.js",
+      "dev": "ts-node-dev --respawn src/index.ts",
+      "build": "tsc",
+      "test": "jest"
+    },
+    "dependencies": {
+      "axios": "^1.7.9",
+      "cors": "^2.8.5",
+      "dotenv": "^10.0.0",
+      "express": "^4.21.2",
+      "graphql": "^16.10.0",
+      "joi": "^17.13.3",
+      "mqtt": "^5.10.3",
+      "pg": "^8.13.1",
+      "pg-hstore": "^2.3.4",
+      "pino": "^9.6.0",
+      "@apollo/server": "^4.11.3",
+      "@grpc/grpc-js": "^1.12.5",
+      "@grpc/proto-loader": "^0.7.13",
+      "sequelize": "^6.37.5",
+      "ws": "^8.18.0"
+    },
+    "devDependencies": {
+      "@types/jest": "^29.5.14",
+      "@types/node": "^22.10.5",
+      "@types/express": "^5.0.0",
+      "jest": "^29.7.0",
+      "supertest": "^7.0.0",
+      "jest-cucumber": "^4.5.0",
+      "ts-jest": "^29.2.5",
+      "typescript": "^5.7.2",
+      "ts-node-dev": "^2.0.0"
+    },
+    "license": "MIT"
+  }
