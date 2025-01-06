@@ -4,7 +4,7 @@ A flexible backend template built with **TypeScript** that supports multiple API
 
 ## Features
 
-- **Multi-API Support**: REST, GraphQL, gRPC, OData, MQTT, and WebSocket APIs are included. You can easily delete or add APIs as needed by removing related files and configurations ().
+- **Multi-API Support**: REST, GraphQL, gRPC, MQTT, and WebSocket APIs are included. You can easily delete or add APIs as needed by removing related files and configurations ().
 - **Domain-Driven Design**: Follow DDD principles for maintainable and scalable code.
 - **Docker Ready**: The project is pre-configured to run in Docker, making deployment straightforward.
 - **TypeScript**: Built with TypeScript for better type safety and developer experience.
