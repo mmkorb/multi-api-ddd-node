@@ -18,6 +18,7 @@ A flexible backend template built with **TypeScript** that supports multiple API
 To get started with the project, clone this repository and install the dependencies.
 
 ## The project follows the DDD architecture and includes the following folders
+```plaintext
 src/
 ├── application/
 │   ├── api/
@@ -27,11 +28,12 @@ src/
 │   │   ├── mqtt/             # MQTT API
 │   │   ├── odata/            # OData API
 │   │   ├── websocket/        # WebSocket API
-│   ├── services/             # Handles the interaction between application layer (APIs) and domain layer (business logic)
+│   ├── services/             # Handles the interaction between APIs and domain logic
 ├── domain/                   # Core business models and logic
 ├── infrastructure/            # External services, database, logging
 ├── shared/                    # Shared utilities and constants
 └── tests/                     # Unit, Integration, and Acceptance Tests
+```
 
 ## License
 This project is licensed under the MIT License - see the `LICENSE` file for details.
