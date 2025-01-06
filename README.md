@@ -4,7 +4,7 @@ A flexible backend template built with **TypeScript** that supports multiple API
 
 ## Features
 
-- **Multi-API Support**: REST, GraphQL, gRPC, OData, MQTT, and WebSocket APIs are included. You can easily delete or add APIs as needed by removing related files and configurations.
+- **Multi-API Support**: REST, GraphQL, gRPC, OData, MQTT, and WebSocket APIs are included. You can easily delete or add APIs as needed by removing related files and configurations ().
 - **Domain-Driven Design**: Follow DDD principles for maintainable and scalable code.
 - **Docker Ready**: The project is pre-configured to run in Docker, making deployment straightforward.
 - **TypeScript**: Built with TypeScript for better type safety and developer experience.
@@ -13,26 +13,103 @@ A flexible backend template built with **TypeScript** that supports multiple API
 - **Logging**: Powered by `Pino` for high-performance logging.
 - **Testing**: Includes support for unit, integration, and acceptance tests using `Jest` and `Supertest`.
 
-## Installation
+## Installation and dependencies
 
-To get started with the project, clone this repository and install the dependencies.
+To get started with the project, clone this repository and install the following:
+npm install dotenv --project environment variables, make sure to create and fill the .env file
+npm install express --api restful
+npm install cors --cors express middleware
+npm install apollo-server-express graphql --api graphql
+npm install @grpc/grpc-js @grpc/proto-loader --api grpc
+npm install odata-v4-server --api odata
+npm install mqtt --api mqtt
+npm install ws --api websocket
+npm install sequelize pg pg-hstore --orm with postgres
+npm install joi --input validacon
+npm install pino --logging
+npm install axios --external http requests
+npm install jest supertest jest-cucumber 
+npm install typescript 
+npm install ts-jest --jest with typescript
 
 ## DDD architecture folders
 ```plaintext
+# Project Structure Overview
+
+This document provides a detailed overview of the project structure, describing the purpose of each directory and file. The structure follows clean architecture principles for maintainability and scalability.
+
+```plaintext
 src/
-├── application/
-│   ├── api/
-│   │   ├── restful/          # REST API
-│   │   ├── graphql/          # GraphQL API
-│   │   ├── grpc/             # gRPC API
-│   │   ├── mqtt/             # MQTT API
-│   │   ├── odata/            # OData API
-│   │   ├── websocket/        # WebSocket API
-│   ├── services/             # Handles the interaction between APIs and domain logic
-├── domain/                   # Core business models and logic
-├── infrastructure/            # External services, database, logging
-├── shared/                    # Shared utilities and constants
-└── tests/                     # Unit, Integration, and Acceptance Tests
+├── application/                    # Application layer - Orchestration of APIs and services
+│   ├── api/                        # API-specific interfaces and implementations
+│   │   ├── restful/                # REST API components
+│   │   │   ├── controllers/        # REST controllers handling requests and responses
+│   │   │   ├── dtos/               # Data Transfer Objects for request/response validation
+│   │   │   ├── endpoints/          # Endpoint-specific logic
+│   │   │   ├── routes/             # Route definitions
+│   │   │   └── index.ts            # REST API entry point
+│   │   ├── graphql/                # GraphQL API components
+│   │   │   ├── resolvers/          # GraphQL resolvers for queries and mutations
+│   │   │   ├── schemas/            # GraphQL schema definitions
+│   │   │   ├── loaders/            # Data loaders for batch operations
+│   │   │   └── index.ts            # GraphQL API entry point
+│   │   ├── grpc/                   # gRPC API components
+│   │   │   ├── services/           # gRPC service implementations
+│   │   │   ├── protos/             # Protocol Buffer definitions
+│   │   │   └── index.ts            # gRPC API entry point
+│   │   ├── odata/                  # OData API components
+│   │   │   ├── queries/            # OData query implementations
+│   │   │   ├── filters/            # OData filter logic
+│   │   │   └── index.ts            # OData API entry point
+│   │   ├── mqtt/                   # MQTT API components
+│   │   │   ├── brokers/            # Broker configurations and setups
+│   │   │   ├── topics/             # Topic-specific logic
+│   │   │   └── index.ts            # MQTT API entry point
+│   │   ├── kafka/                  # Kafka-based API
+│   │   │   ├── messageProcessor.ts # Process incoming Kafka messages
+│   │   │   ├── responseBuilder.ts  # Build Kafka response messages
+│   │   │   └── index.ts            # API layer entry point
+│   │   ├── rabbitmq/               # RabbitMQ-based API
+│   │   │   ├── messageProcessor.ts # Process incoming RabbitMQ messages
+│   │   │   ├── responseBuilder.ts  # Build RabbitMQ response messages
+│   │   │   └── index.ts            # API layer entry point
+│   │   ├── websocket/              # WebSocket API components
+│   │   │   ├── events/             # WebSocket event handlers
+│   │   │   ├── handlers/           # Logic for handling WebSocket messages
+│   │   │   └── index.ts            # WebSocket API entry point
+│   │   └── index.ts                # API layer entry point
+│   ├── services/                   # Services interacting with domain logic
+├── domain/                         # Core business logic layer
+│   ├── models/                     # Domain models (entities and value objects)
+│   ├── services/                   # Domain services (business rules and logic)
+│   └── repositories/               # Domain repository interfaces
+├── infrastructure/                 # Infrastructure layer - External integrations and tools
+│   ├── database/                   # Database-related configurations and tools
+│   ├── messaging/                  # Messaging systems and brokers
+│   │   ├── kafka/                  # Kafka-specific integration
+│   │   │   ├── producer.ts         # Handles Kafka message production
+│   │   │   └── consumer.ts         # Handles Kafka message consumption
+│   │   ├── rabbitmq/               # RabbitMQ-specific integration
+│   │   │   ├── publisher.ts        # Handles RabbitMQ message publishing
+│   │   │   └── subscriber.ts       # Handles RabbitMQ message subscribing
+│   └── logging/                    # Logging configurations and implementations
+├── config/                         # Global configuration files
+│   ├── index.ts                    # Main configuration loader
+│   ├── serverConfig.ts             # Server-related configurations
+│   ├── dbConfig.ts                 # Database configurations
+│   └── apiConfig.ts                # API-related configurations
+├── shared/                         # Shared utilities and constants
+├── tests/                          # Test files
+│   ├── unit/                       # Unit tests
+│   ├── integration/                # Integration tests
+│   └── acceptance/                 # Acceptance tests
+├── .env                            # Environment variable file
+├── .gitignore                      # Git ignore file
+├── LICENSE                         # Project license
+├── README.md                       # Project documentation
+├── package.json                    # NPM package definition
+├── tsconfig.json                   # TypeScript configuration file
+└── Dockerfile                      # Docker configuration for containerization
 ```
 
 ## License
